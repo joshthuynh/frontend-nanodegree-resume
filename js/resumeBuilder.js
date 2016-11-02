@@ -10,7 +10,7 @@ var bio = {
         },
 	"welcomeMessage"  : "Let go get it!",
         "skills" : ["rock steady", "magic", "lucky", "swag", "lit"],
-	"biopic"  : "image/myself.jpg"
+	"biopic"  : "images/fry.jpg"
 }
 
 var enducation = {
@@ -53,14 +53,14 @@ var work = {
            {
              "employer" : "SWBC",
              "title"    : "Power Engineer",
-             "location" : "Dallas",
+             "location" : "Dallas, TX",
              "dates"    : "June 1999 - January 2001",
              "description" : "Create and manage power requirement of office"
 	   },
            {
              "employer" : "AT&T",
              "title"    : "Network Planner",
-             "location" : "Dallas",
+             "location" : "Dallas, TX",
              "dates"    : "January 2001 - Present",
              "description" : "Provide work process for migration"
            }
@@ -80,27 +80,43 @@ var projects = {
 
 
 
-
-/*BIO*/
-var formattedName = HTMLheaderName.replace("%data%",bio.name);
-$("#header").append(formattedName);
-var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-$("#header").append(formattedRole);
-var formattedContact = HTMLmobile.replace("%data%", bio.mobile);
-$("#header:last").append(formattedContact);
-formattedContact = HTMLemail.replace("%data%", bio.email);
-$("#header:last").append(formattedContact);
+bio.display = function() {
+   /*BIO*/
+   var formattedName = HTMLheaderName.replace("%data%",bio.name);
+   var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+   $("#header").prepend(formattedRole);
+   $("#header").prepend(formattedName);
 
 
-/*SKILLS*/
-if (bio.skills.length > 0) {
-   $("#header").append(HTMLskillsStart);
-   var formattedSkill;
-   for (skill in bio.skills) {
-      formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-      $("#skills").append(formattedSkill);
+   //$("#topContact").append(HTMLcontactGeneric);
+   var formattedContact = HTMLemail.replace("%data%", bio.contact.location);
+   $("#topContacts").prepend(formattedContact);
+   formattedContact = HTMLtwitter.replace("%data%", bio.contact.twitter);
+   $("#topContacts").prepend(formattedContact);
+   formattedContact = HTMLgithub.replace("%data%", bio.contact.github);
+   $("#topContacts").prepend(formattedContact);
+   formattedContact = HTMLemail.replace("%data%", bio.contact.email);
+   $("#topContacts").prepend(formattedContact);
+   formattedContact = HTMLmobile.replace("%data%", bio.contact.mobile);
+   $("#topContacts").prepend(formattedContact);
+   
+
+   var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+   $("#header").append(formattedWelcome);
+   var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+   $("#header").append(formattedBioPic);
+   
+   /*SKILLS*/
+   if (bio.skills.length > 0) {
+      $("#header").append(HTMLskillsStart);
+      var formattedSkill;
+      for (skill in bio.skills) {
+         formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+         $("#header").append(formattedSkill);
+      }
    }
 }
+
 
 work.display = function() {
 
@@ -114,6 +130,8 @@ work.display = function() {
         $(".work-entry:last").append(formattedStr);
         var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
         $(".work-entry:last").append(formattedDates);
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        $(".work-entry:last").append(formattedLocation);
         var formattedDescrip = HTMLworkDescription.replace("%data%", work.jobs[job].description)
         $(".work-entry:last").append(formattedDescrip);
      }
@@ -141,20 +159,23 @@ projects.display = function() {
    }
 }
 
+bio.display();
 work.display();
 projects.display();
+//$('#main').append(googleMap);
 
 /*$(document).click(function(loc) {
   var x = loc.pageX;
   var y = loc.pageY;
   logClicks(x,y);
-});
+});*/
 
 function inName() {
+
   var name = bio.name.split(" ");
   name[1] = name[1].toUpperCase();
   name[0] = name[0].splice(0,1).toUpperCase(); + name[0].slice(1).toLowerCase();
   return name[0] + " " + name[1];
 }
-$('#main').append(internalionalizeButton);*/
+$('#main').append(internationalizeButton);
 
