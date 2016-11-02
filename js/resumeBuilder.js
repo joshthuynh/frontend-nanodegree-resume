@@ -170,12 +170,14 @@ projects.display();
   logClicks(x,y);
 });*/
 
-function inName() {
+function inName(name) {
 
-  var name = bio.name.split(" ");
+  name = name.split(" ");
+
   name[1] = name[1].toUpperCase();
-  name[0] = name[0].splice(0,1).toUpperCase(); + name[0].slice(1).toLowerCase();
-  return name[0] + " " + name[1];
+  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+  var iName = name[0]+" "+ name[1];
+  return iName;
 }
 $('#main').append(internationalizeButton);
 
