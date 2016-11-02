@@ -89,30 +89,32 @@ bio.display = function() {
 
 
    //$("#topContact").append(HTMLcontactGeneric);
-   var formattedContact = HTMLemail.replace("%data%", bio.contact.location);
-   $("#topContacts").prepend(formattedContact);
-   formattedContact = HTMLtwitter.replace("%data%", bio.contact.twitter);
-   $("#topContacts").prepend(formattedContact);
-   formattedContact = HTMLgithub.replace("%data%", bio.contact.github);
+   var formattedContact = HTMLmobile.replace("%data%", bio.contact.mobile);
    $("#topContacts").prepend(formattedContact);
    formattedContact = HTMLemail.replace("%data%", bio.contact.email);
+   $("#topContacts").append(formattedContact);
+   formattedContact = HTMLgithub.replace("%data%", bio.contact.github);
    $("#topContacts").prepend(formattedContact);
-   formattedContact = HTMLmobile.replace("%data%", bio.contact.mobile);
-   $("#topContacts").prepend(formattedContact);
-   
+   formattedContact = HTMLtwitter.replace("%data%", bio.contact.twitter);
+   $("#topContacts").append(formattedContact);
+   formattedContact = HTMLlocation.replace("%data%", bio.contact.location);
+   $("#topContacts").append(formattedContact);
 
-   var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-   $("#header").append(formattedWelcome);
    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
    $("#header").append(formattedBioPic);
+   var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+   $("#header").append(formattedWelcome);  
+
+  
+
    
    /*SKILLS*/
    if (bio.skills.length > 0) {
       $("#header").append(HTMLskillsStart);
       var formattedSkill;
-      for (skill in bio.skills) {
-         formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-         $("#header").append(formattedSkill);
+      for (var i=0; i < bio.skills.length; i++) {
+         formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+         $("#skills").append(formattedSkill);
       }
    }
 }
