@@ -1,7 +1,7 @@
 var bio = {
         "name"    : "Nong Mairoo",
         "role"    : "Engineer",
-        "contact" : {
+        "contacts" : {
             "mobile"   : "445-555-2312",
             "email"    : "nongm@nowhere.com",
 	    "github"   : "nongm123",
@@ -89,15 +89,15 @@ bio.display = function() {
 
 
    //$("#topContact").append(HTMLcontactGeneric);
-   var formattedContact = HTMLmobile.replace("%data%", bio.contact.mobile);
+   var formattedContact = HTMLmobile.replace("%data%", bio.contacts.mobile);
    $("#topContacts").prepend(formattedContact);
-   formattedContact = HTMLemail.replace("%data%", bio.contact.email);
+   formattedContact = HTMLemail.replace("%data%", bio.contacts.email);
    $("#topContacts").append(formattedContact);
-   formattedContact = HTMLgithub.replace("%data%", bio.contact.github);
+   formattedContact = HTMLgithub.replace("%data%", bio.contacts.github);
    $("#topContacts").prepend(formattedContact);
-   formattedContact = HTMLtwitter.replace("%data%", bio.contact.twitter);
+   formattedContact = HTMLtwitter.replace("%data%", bio.contacts.twitter);
    $("#topContacts").append(formattedContact);
-   formattedContact = HTMLlocation.replace("%data%", bio.contact.location);
+   formattedContact = HTMLlocation.replace("%data%", bio.contacts.location);
    $("#topContacts").append(formattedContact);
 
    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
@@ -205,7 +205,7 @@ bio.display();
 work.display();
 projects.display();
 education.display();
-$('#main').append(googleMap);
+$('#mapDiv').append(googleMap);
 
 /*$(document).click(function(loc) {
   var x = loc.pageX;
