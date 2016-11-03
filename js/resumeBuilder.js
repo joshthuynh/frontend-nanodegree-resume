@@ -13,7 +13,7 @@ var bio = {
 	"biopic"  : "images/fry.jpg"
 }
 
-var enducation = {
+var education = {
         "schools" : [
            {
               "name"     : "UTD",
@@ -161,9 +161,50 @@ projects.display = function() {
    }
 }
 
+
+education.display = function() {
+    if (education.schools.length > 0) {
+       for (var i=0; i < education.schools.length; i++) {
+           $("#education").append(HTMLschoolStart);
+           var formattedStr = HTMLschoolName.replace("%data%", education.schools[i].name);
+           //$(".education-entry:last").append(formattedStr);
+           formattedStr = formattedStr + HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+           $(".education-entry:last").append(formattedStr);
+           formattedStr = HTMLschoolDates.replace("%data%", education.schools[i].dates);
+           $(".education-entry:last").append(formattedStr);
+           formattedStr = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+           $(".education-entry:last").append(formattedStr);
+
+           for (var j=0; j < education.schools[i].major.length; j++) {
+              formattedStr = HTMLschoolMajor.replace("%data%", education.schools[i].major[j]);
+              $(".education-entry:last").append(formattedStr);
+           }
+          
+        }
+
+    }
+    if (education.onlineCourses.length > 0){
+       $("#education").append(HTMLonlineClasses);
+       for (var i=0; i < education.onlineCourses.length; i++) {
+          $("#education").append(HTMLschoolStart);
+          var formattedStr = HTMLonlineTitle.replace("%data%",education.onlineCourses[i].title);
+          formattedStr = formattedStr + HTMLonlineSchool.replace("%data%",education.onlineCourses[i].school);
+          $(".education-entry:last").append(formattedStr);
+          formattedStr = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
+          $(".education-entry:last").append(formattedStr);
+          formattedStr = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+          $(".education-entry:last").append(formattedStr);
+
+       }
+    }
+
+
+}
+
 bio.display();
 work.display();
 projects.display();
+education.display();
 //$('#main').append(googleMap);
 
 /*$(document).click(function(loc) {
