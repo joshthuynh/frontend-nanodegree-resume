@@ -91,14 +91,23 @@ bio.display = function() {
    //$("#topContact").append(HTMLcontactGeneric);
    var formattedContact = HTMLmobile.replace("%data%", bio.contacts.mobile);
    $("#topContacts").append(formattedContact);
+   $("#footerContacts").append(formattedContact);
+
    formattedContact = HTMLemail.replace("%data%", bio.contacts.email);
    $("#topContacts").append(formattedContact);
+   $("#footerContacts").append(formattedContact);
+
    formattedContact = HTMLgithub.replace("%data%", bio.contacts.github);
    $("#topContacts").append(formattedContact);
+   $("#footerContacts").append(formattedContact);
+
    formattedContact = HTMLtwitter.replace("%data%", bio.contacts.twitter);
    $("#topContacts").append(formattedContact);
+   $("#footerContacts").append(formattedContact);
+
    formattedContact = HTMLlocation.replace("%data%", bio.contacts.location);
    $("#topContacts").append(formattedContact);
+   $("#footerContacts").append(formattedContact);
 
    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
    $("#header").append(formattedBioPic);
@@ -118,6 +127,7 @@ bio.display = function() {
       }
    }
 }
+
 
 
 work.display = function() {
