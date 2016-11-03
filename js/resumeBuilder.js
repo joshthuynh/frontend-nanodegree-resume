@@ -90,11 +90,11 @@ bio.display = function() {
 
    //$("#topContact").append(HTMLcontactGeneric);
    var formattedContact = HTMLmobile.replace("%data%", bio.contacts.mobile);
-   $("#topContacts").prepend(formattedContact);
+   $("#topContacts").append(formattedContact);
    formattedContact = HTMLemail.replace("%data%", bio.contacts.email);
    $("#topContacts").append(formattedContact);
    formattedContact = HTMLgithub.replace("%data%", bio.contacts.github);
-   $("#topContacts").prepend(formattedContact);
+   $("#topContacts").append(formattedContact);
    formattedContact = HTMLtwitter.replace("%data%", bio.contacts.twitter);
    $("#topContacts").append(formattedContact);
    formattedContact = HTMLlocation.replace("%data%", bio.contacts.location);
