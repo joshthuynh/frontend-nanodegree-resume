@@ -205,7 +205,7 @@ bio.display();
 work.display();
 projects.display();
 education.display();
-//$('#main').append(googleMap);
+$('#main').append(googleMap);
 
 /*$(document).click(function(loc) {
   var x = loc.pageX;
