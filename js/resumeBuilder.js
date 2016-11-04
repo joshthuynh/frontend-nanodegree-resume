@@ -159,7 +159,7 @@ education.display = function() {
         for (var i = 0; i < education.schools.length; i++) {
             $("#education").append(HTMLschoolStart);
             //formattedStr = HTMLschoolName.replace("%data%", education.schools[i].name);
-            var formattedStr = HTMLschoolName.replace('%data%', education.schools[i].name).replace('#', education.schools[i].url);
+            formattedStr = HTMLschoolName.replace('%data%', education.schools[i].name).replace('#', education.schools[i].url);
             formattedStr = formattedStr + HTMLschoolDegree.replace("%data%", education.schools[i].degree);
             $(".education-entry:last").append(formattedStr);
             formattedStr = HTMLschoolDates.replace("%data%", education.schools[i].dates);
@@ -198,5 +198,3 @@ work.display();
 projects.display();
 education.display();
 $('#mapDiv').append(googleMap);
-
-
